@@ -10,27 +10,22 @@
  * 驱动电平为正逻辑：HIGH 点亮，LOW 熄灭。
  */
 
-// 板载内置蓝色 LED 绑定引脚
-#ifndef LED_BUILTIN_PIN
-#define LED_BUILTIN_PIN 2
-#endif
-
-// 闪烁交替间隔时间 (毫秒)
+// 板载内置蓝色 LED 引脚与闪烁周期常量定义 (C++ Core Guidelines ES.31)
+constexpr uint8_t LED_BUILTIN_PIN = 2;
 constexpr uint32_t BLINK_INTERVAL_MS = 500;
 
 void setup() {
-    // 初始化串口通信，波特率设为 115200
+    // 初始化串口监视器，波特率 115200
     Serial.begin(115200);
-    delay(200);
     Serial.println();
-    Serial.println(F("=================================================="));
-    Serial.println(F("  ESP32 Onboard LED Blink Program Started"));
-    Serial.println(F("=================================================="));
+    Serial.println("==================================================");
+    Serial.println("  ESP32 Onboard LED Blink Program Started");
+    Serial.println("==================================================");
     Serial.printf("[INFO] Target Hardware : ESP32 DevKit v1 (30-pin)\n");
-    Serial.printf("[INFO] Onboard LED Pin : GPIO %d\n", LED_BUILTIN_PIN);
+    Serial.printf("[INFO] Onboard LED Pin : GPIO %u\n", LED_BUILTIN_PIN);
     Serial.printf("[INFO] Blink Interval  : %u ms\n", BLINK_INTERVAL_MS);
 
-    // 初始化板载 LED 引脚为推挽输出模式
+    // 配置板载 LED 引脚为推挽输出模式
     pinMode(LED_BUILTIN_PIN, OUTPUT);
 
     // 初始状态置低电平（熄灭）
@@ -38,13 +33,11 @@ void setup() {
 }
 
 void loop() {
-    // 点亮板载蓝色 LED
+    // 点亮板载蓝色 LED 500ms
     digitalWrite(LED_BUILTIN_PIN, HIGH);
-    Serial.println(F("[LED Status] ON  (HIGH)"));
     delay(BLINK_INTERVAL_MS);
 
-    // 熄灭板载蓝色 LED
+    // 熄灭板载蓝色 LED 500ms
     digitalWrite(LED_BUILTIN_PIN, LOW);
-    Serial.println(F("[LED Status] OFF (LOW)"));
     delay(BLINK_INTERVAL_MS);
 }

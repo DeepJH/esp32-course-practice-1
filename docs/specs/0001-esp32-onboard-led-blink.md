@@ -24,6 +24,7 @@ esp32-course-practice-1/
 ├── src/
 │   └── main.cpp         # 固件入口与闪烁主逻辑
 ├── include/             # 预留头文件目录
+│   └── .gitkeep
 ├── docs/
 │   ├── adr/
 │   └── specs/
@@ -39,8 +40,8 @@ esp32-course-practice-1/
 - `upload_speed = 921600` (或自适应)
 
 ## 4. 验收清单 (Acceptance Criteria)
-- [ ] AC-1: `platformio.ini` 配置文件完整有效，支持 `esp32doit-devkit-v1` 板型与 Arduino 框架。
-- [ ] AC-2: `src/main.cpp` 编译零警告零错误，`GPIO 2` 被正确初始化为推挽输出模式 (`OUTPUT`)。
-- [ ] AC-3: 主循环在 500ms 保持 HIGH，500ms 保持 LOW，严格交替。
-- [ ] AC-4: 通过 `pio run` 能够在本地干净编译产出 `firmware.bin` 和 `partitions.bin`。
-- [ ] AC-5: 提供完整的烧录指引（含 CLI 与 VS Code GUI 两种途径）。
+- [x] AC-1: `platformio.ini` 配置文件完整有效，支持 `esp32doit-devkit-v1` 板型与 Arduino 框架。
+- [x] AC-2: `src/main.cpp` 编译零警告零错误，`GPIO 2` 被正确初始化为推挽输出模式 (`OUTPUT`)。
+- [x] AC-3: 主循环在 500ms 保持 HIGH，500ms 保持 LOW，严格交替。
+- [x] AC-4: 通过 `pio run` 能够在本地干净编译产出 `firmware.bin` 和 `partitions.bin`。
+- [x] AC-5: 提供完整的烧录指引（含 CLI 与 VS Code GUI 两种途径）。
