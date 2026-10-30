@@ -33,6 +33,8 @@
 ~/.platformio/penv/bin/pio run -t upload --upload-port /dev/ttyACM0
 ```
 
+> 烧录完就自动生效了，下面的也是。
+
 ### 3. 查看运行日志（串口监视器）
 ```bash
 ~/.platformio/penv/bin/pio device monitor -b 115200
